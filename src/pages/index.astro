@@ -1,0 +1,106 @@
+---
+import Navbar from '@components/layout/Navbar.astro';
+import Footer from '@components/layout/Footer.astro';
+import Hero from '@components/sections/Hero.astro';
+import About from '@components/sections/About.astro';
+import Skills from '@components/sections/Skills.astro';
+import Certifications from '@components/sections/Certifications.astro';
+import Contact from '@components/sections/Contact.astro';
+import BentoGrid from '@components/bento/BentoGrid.astro';
+import BentoCell from '@components/bento/BentoCell.astro';
+import ProjectCard from '@components/ui/ProjectCard';
+import { projects } from '@data/projects';
+import '../styles/global.scss';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Patel Neelkumar — Frontend Developer, Systems Builder, Browser OS Creator." />
+    <meta name="author" content="Patel Neelkumar" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Patel Neelkumar — Portfolio" />
+    <meta property="og:description" content="Building the web, one OS at a time." />
+    <meta property="og:type" content="website" />
+
+    <title>Patel Neelkumar — Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+
+  <body>
+    <!-- ── Navigation ── -->
+    <Navbar />
+
+    <!-- ── Hero ── -->
+    <Hero />
+
+    <!-- ── Bento Grid ── -->
+    <BentoGrid id="projects">
+
+      <!-- About — tall cell, right side -->
+      <BentoCell size="tall" accent="cyan">
+        <About />
+      </BentoCell>
+
+      <!-- Featured project — macOS NX wide -->
+      <BentoCell size="wide" accent="cyan">
+        <ProjectCard
+          client:visible
+          project={projects.find(p => p.id === 'macos-nx')!}
+        />
+      </BentoCell>
+
+      <!-- Skills — tall cell -->
+      <BentoCell size="tall" accent="violet">
+        <Skills />
+      </BentoCell>
+
+      <!-- Windows Web 8 -->
+      <BentoCell size="square" accent="violet">
+        <ProjectCard
+          client:visible
+          project={projects.find(p => p.id === 'windows-web8')!}
+        />
+      </BentoCell>
+
+      <!-- Machine Sound -->
+      <BentoCell size="square" accent="amber">
+        <ProjectCard
+          client:visible
+          project={projects.find(p => p.id === 'machine-sound')!}
+        />
+      </BentoCell>
+
+      <!-- Phantom BIOS -->
+      <BentoCell size="square" accent="rose">
+        <ProjectCard
+          client:visible
+          project={projects.find(p => p.id === 'phantom-bios')!}
+        />
+      </BentoCell>
+
+      <!-- Certifications — wide -->
+      <BentoCell size="wide" accent="amber">
+        <Certifications />
+      </BentoCell>
+
+      <!-- Contact — wide -->
+      <BentoCell size="wide" accent="violet">
+        <Contact />
+      </BentoCell>
+
+    </BentoGrid>
+
+    <!-- ── Footer ── -->
+    <Footer />
+
+    <!-- ── GSAP Animations ── -->
+    <script>
+      import { initAnimations } from '../scripts/animations';
+      document.addEventListener('DOMContentLoaded', initAnimations);
+    </script>
+  </body>
+</html>
