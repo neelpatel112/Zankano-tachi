@@ -1,6 +1,6 @@
 ---
 import styles from './About.module.scss';
-import type { Stat } from '@types_/index';
+import type { Stat } from '../../types/index';
 
 const stats: Stat[] = [
   { value: '4',  label: 'Live Projects' },
@@ -10,10 +10,8 @@ const stats: Stat[] = [
 ---
 
 <div class={styles.about} id="about">
-  <!-- Top label -->
   <span class={styles.label}>whoami</span>
 
-  <!-- Bio -->
   <h2 class={styles.heading}>
     Building the web,<br />
     <span class={styles.accent}>one OS at a time.</span>
@@ -25,7 +23,6 @@ const stats: Stat[] = [
     pushes what the web can do — all from scratch, no frameworks needed.
   </p>
 
-  <!-- Stats row -->
   <div class={styles.stats}>
     {stats.map((s) => (
       <div class={styles.stat}>
@@ -35,7 +32,6 @@ const stats: Stat[] = [
     ))}
   </div>
 
-  <!-- Location badge -->
   <div class={styles.badge}>
     <span class={styles.badgeDot}></span>
     <span>Vadodara, India</span>
