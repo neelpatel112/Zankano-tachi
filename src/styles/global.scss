@@ -1,27 +1,23 @@
+@use 'variables' as *;
+@use 'mixins' as *;
 @use 'typography';
 @use 'animations';
 
-// ─────────────────────────────────────────
-// RESET
-// ─────────────────────────────────────────
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-// ─────────────────────────────────────────
-// ROOT
-// ─────────────────────────────────────────
 :root {
-  --accent-cyan:   #{$accent-cyan};
-  --accent-violet: #{$accent-violet};
-  --bg-primary:    #{$bg-primary};
-  --bg-cell:       #{$bg-cell};
-  --text-primary:  #{$text-primary};
-  --text-muted:    #{$text-muted};
-  --border:        #{$border-subtle};
-  --cell-radius:   #{$cell-radius};
+  --accent-cyan:   #00f5d4;
+  --accent-violet: #7c3aed;
+  --bg-primary:    #080c14;
+  --bg-cell:       #0d1117;
+  --text-primary:  #f1f5f9;
+  --text-muted:    #475569;
+  --border:        rgba(255, 255, 255, 0.07);
+  --cell-radius:   18px;
 }
 
 html {
@@ -40,73 +36,41 @@ body {
   overflow-x: hidden;
 }
 
-// ─────────────────────────────────────────
-// SCROLLBAR
-// ─────────────────────────────────────────
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: $bg-primary;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: $bg-primary; }
 ::-webkit-scrollbar-thumb {
-  background: rgba($accent-cyan, 0.3);
+  background: rgba(0, 245, 212, 0.3);
   border-radius: 999px;
-  &:hover {
-    background: rgba($accent-cyan, 0.6);
-  }
+  &:hover { background: rgba(0, 245, 212, 0.6); }
 }
 
-// ─────────────────────────────────────────
-// SELECTION
-// ─────────────────────────────────────────
 ::selection {
-  background: rgba($accent-cyan, 0.25);
+  background: rgba(0, 245, 212, 0.25);
   color: $text-primary;
 }
 
-// ─────────────────────────────────────────
-// FOCUS
-// ─────────────────────────────────────────
 :focus-visible {
   outline: 2px solid $accent-cyan;
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-// ─────────────────────────────────────────
-// IMAGES
-// ─────────────────────────────────────────
 img, svg {
   display: block;
   max-width: 100%;
 }
 
-// ─────────────────────────────────────────
-// MAIN CONTAINER
-// ─────────────────────────────────────────
 .container {
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;
-  padding-inline: $space-4;
+  padding-inline: 1rem;
 
-  @include md {
-    padding-inline: $space-8;
-  }
-
-  @include lg {
-    padding-inline: $space-12;
-  }
+  @media (min-width: 768px) { padding-inline: 2rem; }
+  @media (min-width: 1024px) { padding-inline: 3rem; }
 }
 
-// ─────────────────────────────────────────
-// SECTION SPACING
-// ─────────────────────────────────────────
 section {
-  padding-block: $space-16;
-
-  @include lg {
-    padding-block: $space-24;
-  }
+  padding-block: 4rem;
+  @media (min-width: 1024px) { padding-block: 6rem; }
 }
