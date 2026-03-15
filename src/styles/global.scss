@@ -1,0 +1,115 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'typography';
+@use 'animations';
+
+// ─────────────────────────────────────────
+// RESET
+// ─────────────────────────────────────────
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// ─────────────────────────────────────────
+// ROOT
+// ─────────────────────────────────────────
+:root {
+  --accent-cyan:   #{$accent-cyan};
+  --accent-violet: #{$accent-violet};
+  --bg-primary:    #{$bg-primary};
+  --bg-cell:       #{$bg-cell};
+  --text-primary:  #{$text-primary};
+  --text-muted:    #{$text-muted};
+  --border:        #{$border-subtle};
+  --cell-radius:   #{$cell-radius};
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: $bg-primary;
+  color: $text-primary;
+  font-family: $font-body;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+// ─────────────────────────────────────────
+// SCROLLBAR
+// ─────────────────────────────────────────
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: $bg-primary;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba($accent-cyan, 0.3);
+  border-radius: 999px;
+  &:hover {
+    background: rgba($accent-cyan, 0.6);
+  }
+}
+
+// ─────────────────────────────────────────
+// SELECTION
+// ─────────────────────────────────────────
+::selection {
+  background: rgba($accent-cyan, 0.25);
+  color: $text-primary;
+}
+
+// ─────────────────────────────────────────
+// FOCUS
+// ─────────────────────────────────────────
+:focus-visible {
+  outline: 2px solid $accent-cyan;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+// ─────────────────────────────────────────
+// IMAGES
+// ─────────────────────────────────────────
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+// ─────────────────────────────────────────
+// MAIN CONTAINER
+// ─────────────────────────────────────────
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: $space-4;
+
+  @include md {
+    padding-inline: $space-8;
+  }
+
+  @include lg {
+    padding-inline: $space-12;
+  }
+}
+
+// ─────────────────────────────────────────
+// SECTION SPACING
+// ─────────────────────────────────────────
+section {
+  padding-block: $space-16;
+
+  @include lg {
+    padding-block: $space-24;
+  }
+}
+ 
