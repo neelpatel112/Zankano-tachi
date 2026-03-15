@@ -4,14 +4,6 @@ import react from '@astrojs/react';
 export default defineConfig({
   integrations: [react()],
   vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          api: 'modern',
-          additionalData: `@use "/src/styles/_variables.scss" as *; @use "/src/styles/_mixins.scss" as *;`
-        }
-      }
-    },
     resolve: {
       alias: {
         '@components': '/src/components',
