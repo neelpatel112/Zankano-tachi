@@ -1,4 +1,5 @@
-// Google Fonts Import
+@use 'variables' as *;
+
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@400;500;600;700;800&display=swap');
 
 h1, h2, h3, h4, h5, h6 {
@@ -9,14 +10,14 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-h1 { font-size: clamp(2.5rem, 8vw, $text-7xl); }
-h2 { font-size: clamp(1.5rem, 4vw, $text-4xl); }
-h3 { font-size: clamp(1.25rem, 3vw, $text-2xl); }
-h4 { font-size: $text-xl; }
+h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
+h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
+h4 { font-size: 1.25rem; }
 
 p {
   font-family: $font-body;
-  font-size: $text-base;
+  font-size: 1rem;
   line-height: 1.7;
   color: $text-secondary;
   margin: 0;
@@ -29,7 +30,7 @@ a {
 
 code, .mono {
   font-family: $font-mono;
-  font-size: $text-sm;
+  font-size: 0.875rem;
 }
 
 .display {
@@ -39,7 +40,7 @@ code, .mono {
 
 .label {
   font-family: $font-mono;
-  font-size: $text-xs;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: $text-muted;
