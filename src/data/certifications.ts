@@ -29,4 +29,3 @@ export const certifications: Certification[] = [
     color: 'amber',
   },
 ];
-      
