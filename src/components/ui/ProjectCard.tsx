@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Project } from '@types_/index';
+import type { Project } from '../../types/index';
 import styles from './ProjectCard.module.scss';
 
 interface Props {
@@ -26,11 +26,8 @@ export default function ProjectCard({ project }: Props) {
       onHoverEnd={() => setHovered(false)}
       whileHover={{ y: -4, scale: 1.01 }}
       transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-      style={{
-        '--accent': accent,
-      } as React.CSSProperties}
+      style={{ '--accent': accent } as React.CSSProperties}
     >
-      {/* Top bar */}
       <div className={styles.topBar}>
         <div className={styles.windowDots}>
           <span className={styles.dot} style={{ background: '#f43f5e' }} />
@@ -38,18 +35,13 @@ export default function ProjectCard({ project }: Props) {
           <span className={styles.dot} style={{ background: '#22c55e' }} />
         </div>
         <span className={styles.dateRange}>{project.dateRange}</span>
-        <span
-          className={styles.statusBadge}
-          data-status={project.status}
-        >
+        <span className={styles.statusBadge} data-status={project.status}>
           {project.status === 'in-progress' ? '● Live' : '✓ Done'}
         </span>
       </div>
 
-      {/* Content */}
       <div className={styles.body}>
         <h3 className={styles.title}>{project.title}</h3>
-
         <AnimatePresence mode="wait">
           {hovered ? (
             <motion.p
@@ -77,7 +69,6 @@ export default function ProjectCard({ project }: Props) {
         </AnimatePresence>
       </div>
 
-      {/* Tech stack — slides up on hover */}
       <AnimatePresence>
         {hovered && (
           <motion.div
@@ -96,34 +87,22 @@ export default function ProjectCard({ project }: Props) {
         )}
       </AnimatePresence>
 
-      {/* Footer link */}
       <div className={styles.footer}>
         {project.liveUrl && (
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.link}
-          >
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={styles.link}>
             Live Demo ↗
           </a>
         )}
         {project.githubUrl && (
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.link}
-          >
+          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className={styles.link}>
             GitHub ↗
           </a>
         )}
         {!project.liveUrl && !project.githubUrl && (
-          <span className={styles.linkMuted}>github.com/PatelNeelkumar ↗</span>
+          <span className={styles.linkMuted}>github.com/neelpatel112 ↗</span>
         )}
       </div>
 
-      {/* Glow border on hover */}
       <motion.div
         className={styles.glowBorder}
         animate={{ opacity: hovered ? 1 : 0 }}
@@ -131,4 +110,4 @@ export default function ProjectCard({ project }: Props) {
       />
     </motion.div>
   );
-}
+} 
